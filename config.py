@@ -17,7 +17,7 @@ YELLOW = (255,255,0)
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
-TITLE = "My Initials in Pygame"
+TITLE = "Move Rectangles with keys"
 
 # Frame rate (frames per second)
 FPS = 60
