@@ -12,10 +12,10 @@ def init_game():
     pygame.display.set_caption(config.TITLE)
     return screen
 
-def handle_events():
+def handle_events(x1,y1, x2, y2,):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            return False
+            return x1,y1, x2, y2, False
         key = pygame.key.get_pressed()
         if key[pygame.K_LEFT]:
             x1 -= 1
@@ -40,7 +40,7 @@ def handle_events():
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False
-    return True
+    return x1,y1, x2, y2,True
 
 
 def draw_rectangle(screen, color, x, y, width, height):
@@ -90,7 +90,7 @@ def main():
         value = 1
         screen.fill(config.WHITE) # Use color from config
         
-        draw_rectangle(screen, color1,x1, y1, width1, height1)
+        draw_rectangle(screen, color1, x1, y1, width1, height1)
 
         draw_rectangle(screen,color2, x2, y2, width2, height2)
 
