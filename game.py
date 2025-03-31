@@ -86,8 +86,9 @@ def main():
     clock = pygame.time.Clock() # Initialize the clock here
     
     while running:
-        running = handle_events()
+        running = handle_events(x1,y1,x2,y2)
         value = 1
+        
         screen.fill(config.WHITE) # Use color from config
         
         draw_rectangle(screen, color1, x1, y1, width1, height1)
