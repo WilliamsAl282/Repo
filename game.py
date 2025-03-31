@@ -15,32 +15,15 @@ def init_game():
 def handle_events(x1,y1, x2, y2,):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            return x1,y1, x2, y2, False
-        key = pygame.key.get_pressed()
-        if key[pygame.K_LEFT]:
-            x1 -= 1
-        if key[pygame.K_RIGHT]:
-            x1 += 1
-        if key[pygame.K_UP]:
-            y1 -= 1
-        if key[pygame.K_DOWN]:
-            y1 += 1
-
-        if key[pygame.K_a]:
-            x2 -= 1
-        if key[pygame.K_d]:
-            x2 += 1
-        if key[pygame.K_w]:
-            y2 -= 1
-        if key[pygame.K_s]:
-            y2 += 1 
+            return False
+       
 
 
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False
-    return x1,y1, x2, y2,True
+    return True
 
 
 def draw_rectangle(screen, color, x, y, width, height):
@@ -53,12 +36,14 @@ def main():
 
 
     color1 = config.RED
-    x1, y1 = 95, 325
+    x1 = 95
+    y1 = 325
     width1 = 250
     height1 = 125
 
     color2 = config.BLUE
-    x2, y2 = 395, 325
+    x2 = 395
+    y2 = 325
     width2 = 150
     height2 = 225
 
@@ -88,7 +73,24 @@ def main():
     while running:
         running = handle_events(x1,y1,x2,y2)
         value = 1
-        
+        key = pygame.key.get_pressed()
+        if key[pygame.K_LEFT]:
+            x1 -= 20
+        if key[pygame.K_RIGHT]:
+            x1 += 20
+        if key[pygame.K_UP]:
+            y1 -= 20
+        if key[pygame.K_DOWN]:
+            y1 += 20
+
+        if key[pygame.K_a]:
+            x2 -= 20
+        if key[pygame.K_d]:
+            x2 += 20
+        if key[pygame.K_w]:
+            y2 -= 20
+        if key[pygame.K_s]:
+            y2 += 20
         screen.fill(config.WHITE) # Use color from config
         
         draw_rectangle(screen, color1, x1, y1, width1, height1)
